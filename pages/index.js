@@ -17,7 +17,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js in {title ? title : 'Node'}!</a>
+          {process.env.NEXT_PUBLIC_MESSAGE} {NEXT_PUBLIC_MESSAGE} Welcome to <a href="https://nextjs.org">Next.js in {title ? title : 'Node'}!</a>
         </h1>
 
         <p className={styles.description}>
@@ -70,4 +70,10 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+export async function getServerSideProps(context) {
+  return{
+    props: {},
+  }
 }

@@ -23,6 +23,8 @@ RUN npm run build
 FROM node:alpine AS runner
 WORKDIR /app
 
+COPY entrypoint.sh /app/entrypoint.sh
+
 ENV NODE_ENV production
 
 RUN addgroup -g 1001 -S nodejs
@@ -35,11 +37,14 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 
+
 USER nextjs
 
 EXPOSE 3000
 
 ENV PORT 3000
+
+ENTRYPOINT [ "/app/entrypoint.sh" ]
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
