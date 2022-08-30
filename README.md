@@ -48,5 +48,9 @@ end with exec "$@"
 modify dockerfile to ensure entrypoint.sh is in the RUNNER environment  
 add in entrypoint command before CMD to run the entrypoint script  
 
+[guide](https://wangwei1237.github.io/Kubernetes-in-Action-Second-Edition/docs/Setting_the_command_arguments_and_environment_variables.html)  
 
+using the guide above, copy dockerfile command to k8s manifest, 
+k8s manifest command = dockerfile ENTRYPOINT   
+k8s manifest args = dockerfile CMD  
 
