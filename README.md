@@ -57,3 +57,5 @@ k8s manifest args = dockerfile CMD
 
 
 kubectl port-forward pod/nextjs-in-docker 3000:3000
+
+minikube service nextjs

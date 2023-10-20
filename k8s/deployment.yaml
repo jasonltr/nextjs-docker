@@ -18,13 +18,16 @@ spec:
         emptyDir: {}
       containers:
       - name: command-demo-container
-        image: 354481699343.dkr.ecr.us-east-1.amazonaws.com/eks-blue-green:latest3
-        volumeMounts:
-        - mountPath: /app/.next/cache/images
-          name: app
-        command: [ "/app/entrypoint.sh" ]
-        args: ["./node_modules/next/dist/bin/next", "start"]
+        image: jltr93/dockerquickstart:nextjsdocker
+        # volumeMounts:
+        # - mountPath: /app/.next/cache/images
+        #   name: app
+        # command: [ "/app/entrypoint.sh" ]
+        # args: ["./node_modules/next/dist/bin/next", "start"]
         ports:
           - containerPort: 3000
             name: http
+        env:
+          - name: NEXT_PUBLIC_MESSAGE
+            value: testesttestest
       restartPolicy: Always
