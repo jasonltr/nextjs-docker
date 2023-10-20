@@ -54,3 +54,6 @@ using the guide above, copy dockerfile command to k8s manifest,
 k8s manifest command = dockerfile ENTRYPOINT   
 k8s manifest args = dockerfile CMD  
 
+
+
+kubectl port-forward pod/nextjs-in-docker 3000:3000
